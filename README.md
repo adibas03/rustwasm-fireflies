@@ -2,7 +2,7 @@
 
   <h1><code>wasm_game_of_life</code></h1>
 
-  <strong>Conway's Game of Life in Rust and WebAssembly</strong>
+<strong>Conway's Game of Life in Rust and WebAssembly</strong>
 
   <p>
     <a href="https://travis-ci.org/rustwasm/wasm_game_of_life"><img src="https://img.shields.io/azure-devops/build/rustwasm/gloo/6.svg?style=flat-square" alt="Build Status" /></a>
@@ -14,7 +14,8 @@
     <a href="https://discordapp.com/channels/442252698964721669/443151097398296587">Chat</a>
   </h3>
 
-  <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
+<sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
+
 </div>
 
 ## About
@@ -27,3 +28,15 @@ tutorial. The tutorial builds increasingly featureful implementations of
 
 [game-of-life]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 [tutorial]: https://rustwasm.github.io/book/game-of-life/introduction.html
+
+### Install
+
+`npm install`
+
+### Build
+
+Build wasm package
+`wasm-pack build`
+
+Run ui
+`cd www && npm start`

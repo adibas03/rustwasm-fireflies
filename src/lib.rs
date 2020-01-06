@@ -71,17 +71,9 @@ impl Universe {
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
         let mut count = 0;
 
-        let north = if row == 0 {
-            self.height - 1
-        } else {
-            row - 1
-        };
+        let north = if row == 0 { self.height - 1 } else { row - 1 };
 
-        let south = if row == self.height - 1 {
-            0
-        } else {
-            row + 1
-        };
+        let south = if row == self.height - 1 { 0 } else { row + 1 };
 
         let west = if column == 0 {
             self.width - 1
@@ -161,11 +153,8 @@ impl Universe {
         self.cells = next;
     }
 
-    pub fn new() -> Universe {
+    pub fn generate(width: u32, height: u32) -> Universe {
         utils::set_panic_hook();
-
-        let width = 128;
-        let height = 128;
 
         let cells = (0..width * height)
             .map(|i| {
@@ -182,6 +171,12 @@ impl Universe {
             height,
             cells,
         }
+    }
+
+    pub fn new() -> Universe {
+        let width = 128;
+        let height = 128;
+        Universe::generate(width, height)
     }
 
     pub fn width(&self) -> u32 {
