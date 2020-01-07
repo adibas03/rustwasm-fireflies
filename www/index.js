@@ -1,5 +1,5 @@
-import { Universe, Cell } from "wasm-game-of-life";
-import { memory } from "wasm-game-of-life/wasm_game_of_life_bg";
+import { Universe, Cell } from "rustwasm-fireflies";
+import { memory } from "rustwasm-fireflies/rustwasm_fireflies_bg";
 
 const CELL_SIZE = 5; // px
 

@@ -1,7 +1,7 @@
 [package]
-name = "wasm-game-of-life"
+name = "rustwasm-fireflies"
 version = "0.1.0"
-authors = ["Nick Fitzgerald <fitzgen@gmail.com>"]
+authors = ["Anthony(Adibas03) <adibas03@gmail.com>","Nick Fitzgerald <fitzgen@gmail.com>"]
 
 [lib]
 crate-type = ["cdylib", "rlib"]
