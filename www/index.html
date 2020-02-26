@@ -19,9 +19,40 @@
         white-space: pre;
         font-family: monospace;
       }
+      .color-label {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+      }
+      label[for="#99FF00"] {
+        color: #99ff00;
+        background-color: #99ff00;
+      }
+      label[for="#CCFF00"] {
+        color: #ccff00;
+        background-color: #ccff00;
+      }
+      label[for="#EDFF00"] {
+        color: #edff00;
+        background-color: #edff00;
+      }
+      label[for="#FFEF00"] {
+        color: #ffef00;
+        background-color: #ffef00;
+      }
     </style>
   </head>
   <body>
+    <div>
+      <label for="#99FF00" class="color-label"></label>
+      <label for="#CCFF00" class="color-label"></label>
+      <label for="#EDFF00" class="color-label"></label>
+      <label for="#FFEF00" class="color-label"></label>
+      <input type="radio" name="firefly-color" id="#99FF00" hidden />
+      <input type="radio" name="firefly-color" id="#CCFF00" hidden />
+      <input type="radio" name="firefly-color" id="#EDFF00" hidden />
+      <input type="radio" name="firefly-color" id="#FFEF00" hidden />
+    </div>
     <div>
       <input
         id="dimension"

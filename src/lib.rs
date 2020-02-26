@@ -1,7 +1,9 @@
 extern crate cfg_if;
+extern crate rand;
 extern crate wasm_bindgen;
 extern crate web_sys;
 
+mod maths;
 mod utils;
 
 use std::fmt;

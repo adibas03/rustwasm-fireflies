@@ -10,6 +10,7 @@ const CELL_SIZE = 5; // px
 const GRID_COLOR = "000000"; //Color of the sky
 const DEAD_COLOR = "#000000"; //Color of the sky
 const ALIVE_COLOR = "#FFFFFF";
+let selectedColor;
 
 // Construct the universe, and get its width and height.
 // const universe = Universe.new();
@@ -26,14 +27,22 @@ const height = () => {
   return universe.height();
 };
 
+const activeColor = () => {
+  return selectedColor || ALIVE_COLOR;
+};
+
 const updateCanvasDimension = () => {
   // Give the canvas room for all of our cells and a 1px border
   // around each of them.
   canvas.height = (CELL_SIZE + 1) * height() + 1;
   canvas.width = (CELL_SIZE + 1) * width() + 1;
+  dimension.value = `${width()}  x ${height()}`;
 };
 
 const canvas = document.getElementById("game-of-life-canvas");
+const dimension = document.getElementById("dimension");
+const widthSetter = document.getElementById("set-dimension");
+
 updateCanvasDimension();
 
 const ctx = canvas.getContext("2d");
@@ -151,7 +160,7 @@ const drawCells = () => {
   ctx.beginPath();
 
   // Alive cells.
-  ctx.fillStyle = ALIVE_COLOR;
+  ctx.fillStyle = activeColor();
   for (let row = 0; row < height(); row++) {
     for (let col = 0; col < width(); col++) {
       const idx = getIndex(row, col);
@@ -196,18 +205,23 @@ const setDimension = (width, height) => {
   play();
 };
 
-const dimension = document.getElementById("dimension");
-const widthSetter = document.getElementById("set-dimension");
 widthSetter.addEventListener("click", function(event) {
   const values = dimension.value
     .split("x")
     .map(v => v.trim())
     .map(x => Number(x) || 1);
   if (values.length === 2) {
-    dimension.value = values.join(" x ");
     setDimension(...values);
   }
 });
+
+const colorSelector = document.getElementsByName("firefly-color");
+colorSelector.forEach(x =>
+  x.addEventListener("click", event => {
+    selectedColor =
+      event.target.id === selectedColor ? ALIVE_COLOR : event.target.id;
+  })
+);
 
 canvas.addEventListener("click", event => {
   const boundingRect = canvas.getBoundingClientRect();
